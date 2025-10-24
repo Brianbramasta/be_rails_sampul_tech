@@ -95,7 +95,11 @@ Rails.application.configure do
   # Pastikan websocket menggunakan SSL di production
   # config.action_cable.allowed_request_origins = [ config.action_cable.url.gsub(/wss?:\/\//, '') ]
   # Pastikan domain Anda diizinkan
-config.action_cable.allowed_request_origins = [ 'https://beraisaltsampultech-production.up.railway.app' ]
+# config.action_cable.allowed_request_origins = [ 'https://beraisaltsampultech-production.up.railway.app' ]
+config.action_cable.allowed_request_origins = [
+  'https://fe-next-sampul-tech.vercel.app',
+  'https://berailssampultech-production.up.railway.app'
+]
   
   # Disable request forgery protection hanya jika Anda menggunakan token autentikasi
   # config.action_cable.disable_request_forgery_protection = true
