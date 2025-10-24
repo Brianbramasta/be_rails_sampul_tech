@@ -17,6 +17,12 @@ class MessagesController < ApplicationController
   private
   
   def message_params
-    params.require(:message).permit(:username, :content)
+    # Support both wrapped params { message: { username:..., content:... } }
+    # and unwrapped JSON { username:..., content:... } from JS clients.
+    if params[:message].present?
+      params.require(:message).permit(:username, :content)
+    else
+      params.permit(:username, :content)
+    end
   end
 end

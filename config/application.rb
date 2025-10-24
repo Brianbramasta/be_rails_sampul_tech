@@ -28,5 +28,10 @@ module BeRails
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Allow Action Cable requests from any origin
+    config.action_cable.disable_request_forgery_protection = true
+    # Mount Action Cable at /cable
+    config.action_cable.mount_path = '/cable'
   end
 end

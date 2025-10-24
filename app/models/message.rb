@@ -7,6 +7,9 @@ class Message < ApplicationRecord
   private
   
   def broadcast_message
-    ActionCable.server.broadcast('message_channel', { message: self })
+    ActionCable.server.broadcast('message_channel', {
+      type: 'new_message',
+      message: self
+    })
   end
 end

@@ -6,5 +6,12 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  # API routes for the chat app
+  resources :messages, only: [:index, :create, :show]
+
+  # Mount Action Cable server at /cable for WebSocket connections
+  mount ActionCable.server => "/cable"
+
+  # Root can point to messages index if the app serves an HTML page
+  root "messages#index"
 end
