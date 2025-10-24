@@ -80,7 +80,24 @@ Rails.application.configure do
   #   "example.com",     # Allow requests from example.com
   #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
   # ]
-  #
+  
+  # ActionCable production settings
+  # Ganti dengan domain frontend production Anda
+  config.action_cable.allowed_request_origins = [
+    'https://fe-next-sampul-tech.vercel.app',    # Ganti dengan domain frontend Anda
+    /https:\/\/.*\.fe-next-sampul-tech.vercel\.app/  # Mengizinkan subdomain jika diperlukan
+  ]
+  
+  # Menggunakan Redis sebagai adapter untuk ActionCable di production
+  config.action_cable.url = ENV.fetch("ACTION_CABLE_URL", "wss://berailssampultech-production.up.railway.app/cable")
+  config.action_cable.mount_path = '/cable'
+  
+  # Pastikan websocket menggunakan SSL di production
+  config.action_cable.allowed_request_origins = [ config.action_cable.url.gsub(/wss?:\/\//, '') ]
+  
+  # Disable request forgery protection hanya jika Anda menggunakan token autentikasi
+  # config.action_cable.disable_request_forgery_protection = true
+  
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end
