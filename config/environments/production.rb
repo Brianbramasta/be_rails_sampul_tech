@@ -85,7 +85,8 @@ Rails.application.configure do
   # Ganti dengan domain frontend production Anda
   config.action_cable.allowed_request_origins = [
     'https://fe-next-sampul-tech.vercel.app',    # Ganti dengan domain frontend Anda
-    /https:\/\/.*\.fe-next-sampul-tech.vercel\.app/  # Mengizinkan subdomain jika diperlukan
+    /https:\/\/.*\.fe-next-sampul-tech.vercel\.app/,  # Mengizinkan subdomain jika diperlukan,
+    'https://berailssampultech-production.up.railway.app'
   ]
   
   # Menggunakan Redis sebagai adapter untuk ActionCable di production
@@ -96,10 +97,10 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ config.action_cable.url.gsub(/wss?:\/\//, '') ]
   # Pastikan domain Anda diizinkan
 # config.action_cable.allowed_request_origins = [ 'https://beraisaltsampultech-production.up.railway.app' ]
-config.action_cable.allowed_request_origins = [
-  'https://fe-next-sampul-tech.vercel.app',
-  'https://berailssampultech-production.up.railway.app'
-]
+# config.action_cable.allowed_request_origins = [
+#   'https://fe-next-sampul-tech.vercel.app',
+#   'https://berailssampultech-production.up.railway.app'
+# ]
   
   # Disable request forgery protection hanya jika Anda menggunakan token autentikasi
   # config.action_cable.disable_request_forgery_protection = true
