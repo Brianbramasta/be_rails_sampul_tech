@@ -1,0 +1,157 @@
+🧾 Technical Brief — Real-Time Chat App (Ruby on Rails + React/Next.js + MySQL)
+🎯 Tujuan
+
+Membangun aplikasi real-time chat sederhana dengan arsitektur modern:
+
+Backend: Ruby on Rails (API)
+
+Frontend: React.js atau Next.js
+
+Database: MySQL
+
+Aplikasi menampilkan pesan dari database, memperbarui pesan secara real-time, dan bisa diakses publik melalui link deployment.
+
+🧱 Teknologi Utama
+Bagian	Teknologi
+Backend	Ruby on Rails (API mode)
+Database	MySQL
+Realtime	ActionCable (WebSocket bawaan Rails)
+Frontend	React.js / Next.js (pilih salah satu)
+Styling	Tailwind CSS atau CSS Modules
+Deployment	Render / Railway / Vercel (bebas)
+⚙️ Fitur Utama
+
+Chatroom tunggal (global)
+Semua user mengirim dan menerima pesan di ruang yang sama.
+
+Menampilkan pesan lama
+Saat halaman dimuat, frontend memanggil endpoint Rails (/messages) untuk menampilkan pesan yang tersimpan di DB.
+
+Input nama pengguna (username)
+
+Saat pertama kali user membuka halaman, tampilkan modal/input untuk memasukkan username.
+
+Simpan di localStorage agar tidak perlu isi ulang.
+
+Kirim pesan real-time
+
+Frontend mengirim data via API (POST /messages).
+
+Rails mem-broadcast pesan baru via ActionCable ke semua client.
+
+Frontend mendengarkan channel WebSocket untuk update otomatis.
+
+🧩 Struktur Database
+
+Tabel: messages
+
+Kolom	Tipe Data	Keterangan
+id	integer	Primary key
+username	string	Nama pengirim
+content	text	Isi pesan
+created_at	datetime	Otomatis
+updated_at	datetime	Otomatis
+
+Migrasi contoh:
+
+class CreateMessages < ActiveRecord::Migration[7.0]
+  def change
+    create_table :messages do |t|
+      t.string :username
+      t.text :content
+
+      t.timestamps
+    end
+  end
+end
+
+🧠 Langkah Implementasi
+Backend (Rails)
+
+Setup Rails API
+
+rails new chat_backend --api -d mysql
+cd chat_backend
+rails db:create
+
+
+Buat model dan controller
+
+rails generate model Message username:string content:text
+rails generate controller Messages index create
+rails db:migrate
+
+
+Implementasi API
+
+GET /messages → ambil semua pesan
+
+POST /messages → buat pesan baru
+
+Broadcast ke ActionCable setelah pesan tersimpan.
+
+Setup ActionCable
+
+Buat MessageChannel untuk broadcast real-time.
+
+Izinkan koneksi WebSocket dari domain frontend (CORS).
+
+Frontend (React/Next.js)
+
+Setup project
+
+npx create-next-app chat-frontend
+cd chat-frontend
+npm install axios
+npm install --save actioncable
+
+
+Integrasi API
+
+Ambil pesan dari endpoint Rails (/messages)
+
+Kirim pesan baru via POST
+
+Integrasi WebSocket
+
+Gunakan ActionCable client untuk dengar pesan baru.
+
+UI/UX
+
+Tampilkan daftar pesan
+
+Input untuk kirim pesan
+
+Modal untuk input username
+
+Styling dengan Tailwind
+
+🌐 Deployment
+
+Backend: Render / Railway / Heroku
+
+Frontend: Vercel (Next.js) atau Netlify (React.js)
+Pastikan frontend mengarah ke endpoint backend yang sudah dideploy.
+
+💡 Bonus (Nilai Tambah)
+
+Tambahkan animasi saat pesan masuk.
+
+Notifikasi suara “ding” untuk pesan baru.
+
+Scroll otomatis ke pesan terbaru.
+
+Komponen UI modular dan bersih.
+
+📤 Submission
+
+Kirim:
+
+Link Live App (frontend)
+
+Link Live Backend (Rails)
+
+Link GitHub Repo (frontend & backend)
+
+📅 Deadline: 28 Oktober 2025
+📨 Kirim melalui reply all ke email penguji.

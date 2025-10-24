@@ -1,0 +1,59 @@
+Hi Candidates,
+
+We’d like to do a skill challenge that is very closely related to what you will be doing if you become a part of Simpul Technologies team. The challenge we are about to share with you is confidential and should not be shared with anyone else, including third parties, other candidates, or individuals within or outside your network.
+
+Here you go! 
+
+Since our main stack is currently on Ruby on Rails, you will have to learn how to use it if you join our team.
+
+Challenge:
+Create a simple real-time chat web application using Ruby on Rails and deploy it online.
+
+Basic requirements:
+
+Create a chatroom
+Post messages with real-time update to the view
+Host it online, so anyone can view the project by clicking a link.
+Plus points
+
+Implement unit tests
+Implement tasteful UI
+Use modern JS frontend eg. React/Vue
+Note: there is no need to do user authentication etc.
+
+There are many tutorials online as to how to do this; note that they don’t contain all the necessary information to finish the challenge.
+
+Setting up Rails
+
+https://guides.rubyonrails.org/getting_started.html
+How to install ruby on rails on Windows 11 - YouTube
+https://gorails.com/setup/windows/10
+Install Ruby On Rails on Windows 11 | GoRails
+Chat app:
+
+https://iridakos.com/tutorials/2019/04/04/creating-chat-application-rails-websockets.html
+https://pusher.com/tutorials/chat-app-ruby-rails(uses pusher API)
+https://www.nopio.com/blog/rails-real-time-chat-application-part-1/
+https://medium.com/@abhishek.kanojia/create-chat-application-using-ruby-on-rails-c8ab3b83f9e3
+Deploying Rails online
+
+https://devcenter.heroku.com/articles/getting-started-with-rails5
+https://docs.railway.app/
+https://dev.to/torianne02/deploying-a-ruby-on-rails-project-with-heroku-1l7m
+https://itnext.io/deploying-a-rails-app-with-heroku-47e4fbb85965
+Getting Started with Ruby on Rails on Render | Render
+For the deployment step. You are free to use another method of deployment and service.
+
+Share with me the link to the project and source code (via github is preferred).
+
+You have time until October 28th, 2025 to send the project links back to me by hit reply all.
+
+The challenge is meant to test how fast you can learn something new. We understand that you are going to be coding in an uncomfortable environment, so please send us the project even if you don’t finish. We will consider you even if you don’t finish.
+
+Upon completion of the test, please note that successful candidates will be contacted by our team approximately two to three weeks thereafter. 
+
+Feel free to ask me any questions about the challenge! I will do my best to answer and help you through the process.
+
+
+Regards,
+Inneke Soetantyo
